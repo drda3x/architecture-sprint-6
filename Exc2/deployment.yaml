@@ -1,0 +1,23 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: insure-tech-01
+spec:
+  replicas: 1
+  #number of replicas generated
+  selector:
+    #assigns labels to the pods for future selection
+    matchLabels:
+      app: insure-tech-01
+      version: v01
+  template:
+    metadata:
+      labels:
+        app: insure-tech-01
+        version: v01
+    spec:
+      containers:
+      - name: insure-tech-01-container
+        image: shestera/scaletestapp
+        ports:
+        - containerPort: 8080
