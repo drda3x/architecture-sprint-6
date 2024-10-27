@@ -1,0 +1,34 @@
+type Document {
+	id: string
+	type: string
+	number: string
+	issueDate: string
+	expiryDate: string
+}
+
+type Relative {
+	id: string
+	relationType: string
+	name: string
+	age: string
+}
+
+query GetClient($id: ID!) {
+	client(id: $id)	{
+		id: string
+		name: string
+		age: string
+	}
+}
+
+query GetClientDocuments($id: ID!) {
+	documents(id: $id) {
+		data: [Document]!
+	}
+}
+
+query GetRelatives($id: ID!) {
+	relatives(id: $id) {
+		data: [Relative]!
+	}
+}
